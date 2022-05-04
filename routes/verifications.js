@@ -3,6 +3,8 @@ const router = express.Router()
 const bcrypt = require("bcrypt")  
 const db = require("../config/db") 
 
+
+
 router.get("/user/verify/:email/:emailUUID", (req ,res)=>{
     let {email, emailUUID} = req.params;
     db.query("SELECT emailUUID FROM account WHERE email= ?", [email], async (err, result)=>{
